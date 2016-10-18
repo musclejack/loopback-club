@@ -1,0 +1,32 @@
+{
+  "name": "AppUser",
+  "plural": "users",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "ttl": 604800,
+    "mongodb": {
+      "collection": "users"
+    }
+  },
+  "properties": {
+    "avatar": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string",
+      "default": "这个人很懒,什么都没有留下~"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "topics": {
+      "type": "hasMany",
+      "model": "Topic",
+      "foreignKey": "authorId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

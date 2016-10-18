@@ -1,0 +1,38 @@
+{
+  "name": "Topic",
+  "plural": "topics",
+  "base": "BaseModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "string",
+      "required": true
+    },
+    "deleted": {
+      "type": "date"
+    }
+  },
+  "hidden": ["deleted"],
+  "validations": [],
+  "relations": {
+    "author": {
+      "type": "belongsTo",
+      "model": "AppUser",
+      "foreignKey": "authorId"
+    }
+  },
+  "acls": [],
+  "scope": {
+    "where": {
+      "deleted": null
+    }
+  },
+  "methods": {}
+}
